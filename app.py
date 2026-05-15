@@ -2,7 +2,9 @@ import tkinter as tk
 from tkinter import messagebox
 import numpy as np
 import pandas as pd
+from sklearn.metrics import roc_curve, auc as roc_auc_fn
 
+import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
@@ -89,7 +91,24 @@ e1, e2, e3, e4, e5, e6, e7, e8 = entries
 
 
 
-# Tahmin modelimiz burada
+
+def show_roc():
+    y_prob = model.predict_proba(X_test)[:, 1]
+
+    fpr, tpr, _ = roc_curve(y_test, y_prob)
+    roc_auc = roc_auc_fn(fpr, tpr)
+
+    plt.figure(figsize=(6,5))
+    plt.plot(fpr, tpr, label=f"AUC = {roc_auc:.3f}")
+    plt.plot([0, 1], [0, 1], "--")
+
+    plt.title("ROC Eğrisi - Diyabet Modeli")
+    plt.xlabel("False Positive Rate")
+    plt.ylabel("True Positive Rate")
+    plt.legend()
+    plt.grid()
+    plt.show()
+
 def predict():
     try:
         data = np.array([[
@@ -129,6 +148,15 @@ def clear():
     for e in entries:
         e.delete(0, tk.END)
     result_label.config(text="", bg="#0f172a")
+
+tk.Button(
+    root,
+    text="ROC Grafiği Göster",
+    command=show_roc,
+    bg="#10b981",
+    fg="white",
+    font=("Arial", 12)
+).pack(pady=5)
 
 
 tk.Button(
