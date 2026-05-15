@@ -1,4 +1,4 @@
-# 🧠 Yapay Zeka Destekli Diyabet Risk Tahmin Sistemi
+# 🧠 Karşılaştırmalı Diyabet Risk Tahmin Sistemi
 
 ## 📌 Proje Amacı
 
