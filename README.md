@@ -1,185 +1,156 @@
-
-
-
-
----
-
-# Bu proje Tıpta Yapay Zeka dersimin Proje Ödevi için oluşturuldu
-
-* Projeyi 3.14 python ile hazırladım tkinker arayüzü vardır. sistem sizin girdiğiniz verileri hastaların verileriyle karşılaştırarak bir risk oranı oluşturur. gerekli kütüphaneler aşağıda metinde yazılıdır.
----
-
+# 🧠 Yapay Zeka Destekli Diyabet Risk Tahmin Sistemi
 
 ## 📌 Proje Amacı
 
-Bu proje, klinik veriler kullanılarak **Tip 2 Diyabet riskinin yapay zeka ile tahmin edilmesini** amaçlamaktadır. Kullanıcıdan alınan sağlık parametreleri, gerçek bir tıbbi veri seti ile eğitilmiş makine öğrenmesi modeli üzerinden analiz edilerek risk sonucu üretilir.
+Bu proje, klinik veriler kullanılarak **Tip 2 Diyabet riskinin yapay zeka ile tahmin edilmesini** amaçlamaktadır. Sistem, kullanıcıdan alınan sağlık parametrelerini analiz ederek hastanın diyabet riskini olasılıksal olarak hesaplar ve risk seviyesini sınıflandırır.
 
 ---
 
 ## 🏥 Problem Tanımı
 
-Type 2 Diabetes dünya genelinde yaygın görülen ve erken teşhis edilmediğinde ciddi komplikasyonlara yol açan bir hastalıktır.
+:contentReference[oaicite:0]{index=0}, dünya genelinde yaygın görülen ve erken teşhis edilmediğinde ciddi komplikasyonlara yol açabilen kronik bir hastalıktır.
 
-Erken teşhis önemlidir çünkü:
+### Klinik Önemi:
+- Kalp ve damar hastalıkları
+- Böbrek yetmezliği
+- Sinir hasarı (nöropati)
+- Görme kaybı
 
-* Kalp hastalıkları
-* Böbrek yetmezliği
-* Sinir hasarı
-* Görme kaybı
-
-gibi komplikasyonlar gelişebilir.
+Diyabetin erken teşhisi hem yaşam kalitesini artırmakta hem de sağlık maliyetlerini önemli ölçüde azaltmaktadır.
 
 ---
 
 ## 📊 Kullanılan Veri Seti
 
-Proje kapsamında aşağıdaki açık veri seti kullanılmıştır:
+- **Veri seti:** Pima Indians Diabetes Dataset  
+- **Kaynak:** Açık erişimli tıbbi veri seti (UCI / Kaggle)
 
-* Pima Indians Diabetes Dataset
-* Kaynak: Açık tıbbi veri tabanı (UCI / Kaggle türevi)
-
-Özellikler:
-
-* Glucose
-* BMI
-* Blood Pressure
-* Insulin
-* Age
-* Pregnancies
-* Diabetes Pedigree Function
+### Özellikler:
+- Gebelik Sayısı
+- Glikoz
+- Kan Basıncı
+- Cilt Kalınlığı
+- İnsülin
+- Vücut Kitle İndeksi (BMI)
+- Diyabet Soy Ağacı Fonksiyonu
+- Yaş
 
 ---
 
-## 🤖 Kullanılan Yapay Zeka Modeli
+## 🧹 Veri Ön İşleme
 
-* Algoritma: **Random Forest Classifier**
-* Kütüphane: scikit-learn
-* Veri işleme: StandardScaler + Median Imputation
-* Eğitim yaklaşımı: Train/Test Split (%80 / %20)
+- Eksik değerler medyan ile doldurulmuştur (SimpleImputer)
+- Özellikler standartlaştırılmıştır (StandardScaler)
+- Veri %80 eğitim / %20 test olarak ayrılmıştır
+- Sınıf dağılımı stratified split ile korunmuştur
 
-Model, hastaları geçmiş veri setindeki örneklerle karşılaştırarak öğrenir ve olasılık tabanlı risk tahmini üretir.
+---
+
+## 🤖 Model ve Yöntem
+
+- **Algoritma:** Random Forest Sınıflandırıcı
+- **Kütüphane:** Scikit-learn
+
+### Kullanım Nedeni:
+Random Forest, tablo verilerinde yüksek doğruluk sağlayan ve aşırı öğrenmeye (overfitting) karşı dayanıklı bir topluluk (ensemble) yöntemidir.
+
+### Hiperparametreler:
+- Ağaç sayısı: 250
+- Maksimum derinlik: 12
+- Rastgele durum: 42
 
 ---
 
 ## 📈 Model Performansı
 
-* ROC-AUC: ~0.80 – 0.87 aralığı
-* Çoklu karar ağacı yapısı sayesinde overfitting azaltılmıştır
+- Kullanılan metrik: ROC-AUC
+- Modelin ayırt etme gücü ROC eğrisi ile analiz edilmiştir
+
+### ROC-AUC Yorumu:
+- 0.50 → rastgele tahmin
+- 0.70–0.80 → orta seviye
+- 0.80+ → iyi performans
+
+Bu proje kapsamında model **iyi düzeyde ayırma başarısı göstermektedir.**
+
+---
+
+## 📊 Görselleştirmeler
+
+- ROC Eğrisi
+- Risk yüzdesi çıktısı
+- Renk kodlu risk sınıflandırması
+
+---
+
+## 🧠 Model Çalışma Mantığı
+
+1. Kullanıcı sağlık verilerini girer
+2. Model bu veriyi eğitim verisi ile karşılaştırır
+3. Random Forest algoritması olasılık üretir
+4. Sistem hastayı:
+   - Düşük Risk
+   - Orta Risk
+   - Yüksek Risk  
+   olarak sınıflandırır
+
+---
+
+## ⚖️ Etik ve Sınırlılıklar
+
+- Bu sistem **klinik teşhis aracı değildir**
+- Sadece **karar destek ve eğitim amaçlıdır**
+- Gerçek tıbbi kararlar için doktor değerlendirmesi gereklidir
+
+### Veri ve Model Sınırlamaları:
+- Veri seti sınırlı sayıda hasta içermektedir
+- Demografik bias (yanlılık) ihtimali bulunmaktadır
+- Gerçek klinik ortamda ek doğrulama gereklidir
 
 ---
 
 ## 🖥️ Uygulama Arayüzü
 
-Proje, Python Tkinter kullanılarak geliştirilmiştir.
-
-Arayüz özellikleri:
-
-* Hasta verisi giriş alanları
-* Tek butonla tahmin sistemi
-* Risk sonucu (Düşük / Orta / Yüksek)
-* Olasılık yüzdesi
-* Renkli risk gösterimi
-
----
-
-## ⚙️ Çalışma Mantığı
-
-1. Kullanıcı sağlık verilerini girer
-2. Model bu veriyi eğitim verisi ile karşılaştırır
-3. Random Forest algoritması olasılık üretir
-4. Sistem risk seviyesini sınıflandırır
+- Python Tkinter ile geliştirilmiştir
+- Kullanıcıdan gerçek zamanlı veri alınır
+- Tek buton ile tahmin yapılır
+- Sonuç renkli olarak gösterilir
 
 ---
 
 ## 🧪 Örnek Kullanım
 
-### 🔴 Yüksek Risk Örneği:
+### 🔴 Yüksek Risk:
+- Glikoz: 180
+- BMI: 34.5
+- Yaş: 50
 
-```
-
-Pregnancies: 4
-Glucose: 180
-BloodPressure: 88
-SkinThickness: 35
-Insulin: 200
-BMI: 34.5
-Pedigree: 0.8
-Age: 50
-
-```
-
-➡ Model sonucu: **YÜKSEK RİSK**
+➡ Sonuç: Yüksek Diyabet Riski
 
 ---
 
-### 🟢 Düşük Risk Örneği:
+### 🟢 Düşük Risk:
+- Glikoz: 90
+- BMI: 22
+- Yaş: 25
 
-```
-
-Pregnancies: 1
-Glucose: 90
-BloodPressure: 70
-SkinThickness: 20
-Insulin: 80
-BMI: 22
-Pedigree: 0.2
-Age: 25
-
-```
-
-➡ Model sonucu: **DÜŞÜK RİSK**
-
----
-
-## ⚠️ Etik ve Klinik Uyarı
-
-Bu sistem:
-
-* Bir **klinik teşhis aracı değildir**
-* Sadece **karar destek ve eğitim amaçlıdır**
-* Doktor değerlendirmesinin yerine geçmez
-
----
-
-## 📊 AUC Nedir?
-
-AUC, ROC eğrisi altındaki alandır.
-
-ROC eğrisi:
-Modelin duyarlılık (sensitivity) ve özgüllük (specificity) dengesini gösterir.
-
-###🏥 Tıp açısından yorumu
-
-Örneğin:
-AUC = 0.82 bizdeki gibi
-
-👉 Model şu anlama gelir:
-%82 ihtimalle bir diyabet hastasını doğru şekilde “riskli” olarak ayırabiliyor.
+➡ Sonuç: Düşük Diyabet Riski
 
 ---
 
 ## 🧰 Kullanılan Teknolojiler
 
-* Python 🐍
-* Tkinter 🖥️
-* Pandas 📊
-* NumPy 🔢
-* Scikit-learn 🤖
+- Python
+- Scikit-learn
+- Pandas
+- NumPy
+- Tkinter
+- Matplotlib (ROC eğrisi için)
 
 ---
 
-## 🚀 Çalıştırma
+## 🚀 Çalıştırma Talimatı
 
 ```bash
-pip install numpy pandas scikit-learn
+pip install numpy pandas scikit-learn matplotlib
 python app.py
-```
-
----
-
-## 📌 Sonuç
-
-Bu proje, yapay zekanın sağlık alanında karar destek sistemlerinde nasıl kullanılabileceğini göstermektedir. Klinik veriler üzerinden risk analizi yaparak erken teşhise katkı sağlamayı hedefler.
-
----
----
