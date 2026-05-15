@@ -116,6 +116,9 @@ Bu proje kapsamında model **iyi düzeyde ayırma başarısı göstermektedir.**
 - Tek buton ile tahmin yapılır
 - Sonuç renkli olarak gösterilir
 
+  <img width="592" height="619" alt="image" src="https://github.com/user-attachments/assets/a545149f-1783-4690-ae6d-90d0869612d3" />
+
+
 ---
 
 ## 🧪 Örnek Kullanım
@@ -133,6 +136,9 @@ Bu proje kapsamında model **iyi düzeyde ayırma başarısı göstermektedir.**
 
 ➡ Sonuç: Yüksek Diyabet Riski
 
+<img width="597" height="648" alt="image" src="https://github.com/user-attachments/assets/dd5584a1-4c0f-4cd3-9815-b317fead3c0b" />
+
+
 ---
 
 ### 🟢 Düşük Risk:
@@ -147,6 +153,9 @@ Bu proje kapsamında model **iyi düzeyde ayırma başarısı göstermektedir.**
 - Yaş (yıl): 25
 
 ➡ Sonuç: Düşük Diyabet Riski
+
+<img width="597" height="643" alt="image" src="https://github.com/user-attachments/assets/5162a952-6a7d-4565-ad47-d9df9b60c94b" />
+
 
 ---
 
