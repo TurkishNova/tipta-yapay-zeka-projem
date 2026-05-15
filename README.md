@@ -94,9 +94,18 @@ Arayüz özellikleri:
 
 ### 🔴 Yüksek Risk Örneği:
 
-* Glucose: 180
-* BMI: 34.5
-* Age: 50
+```
+
+Pregnancies: 4
+Glucose: 180
+BloodPressure: 88
+SkinThickness: 35
+Insulin: 200
+BMI: 34.5
+Pedigree: 0.8
+Age: 50
+
+```
 
 ➡ Model sonucu: **YÜKSEK RİSK**
 
@@ -104,9 +113,18 @@ Arayüz özellikleri:
 
 ### 🟢 Düşük Risk Örneği:
 
-* Glucose: 90
-* BMI: 22
-* Age: 25
+```
+
+Pregnancies: 1
+Glucose: 90
+BloodPressure: 70
+SkinThickness: 20
+Insulin: 80
+BMI: 22
+Pedigree: 0.2
+Age: 25
+
+```
 
 ➡ Model sonucu: **DÜŞÜK RİSK**
 
@@ -129,18 +147,6 @@ Bu sistem:
 * Pandas 📊
 * NumPy 🔢
 * Scikit-learn 🤖
-
----
-
-## 📁 Proje Yapısı
-
-```
-project/
-│
-├── app.py
-├── README.md
-└── requirements.txt (opsiyonel)
-```
 
 ---
 
