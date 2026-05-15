@@ -73,6 +73,9 @@ Random Forest, tablo verilerinde yüksek doğruluk sağlayan ve aşırı öğren
 
 Bu proje kapsamında model **iyi düzeyde ayırma başarısı göstermektedir.**
 
+<img width="523" height="450" alt="image" src="https://github.com/user-attachments/assets/4173c273-9fa3-4c47-b155-265bef29c113" />
+
+
 ---
 
 ## 📊 Görselleştirmeler
