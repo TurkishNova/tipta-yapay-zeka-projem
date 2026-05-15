@@ -66,7 +66,7 @@ Random Forest, tablo verilerinde yüksek doğruluk sağlayan ve aşırı öğren
 - Kullanılan metrik: ROC-AUC
 - Modelin ayırt etme gücü ROC eğrisi ile analiz edilmiştir
 
-### ROC-AUC Yorumu:
+### ROC-AUC oranlarıyla ilgili:
 - 0.50 → rastgele tahmin
 - 0.70–0.80 → orta seviye
 - 0.80+ → iyi performans
@@ -121,18 +121,30 @@ Bu proje kapsamında model **iyi düzeyde ayırma başarısı göstermektedir.**
 ## 🧪 Örnek Kullanım
 
 ### 🔴 Yüksek Risk:
-- Glikoz: 180
-- BMI: 34.5
-- Yaş: 50
+
+- Gebelik Sayısı (adet): 4
+- Glikoz (mg/dL): 180
+- Kan Basıncı (mmHg): 88
+- Cilt Kalınlığı (mm): 35
+- İnsülin (µU/mL): 200
+- Vücut Kitle İndeksi (BMI kg/m²): 34.5
+- Soy Ağacı / Diyabet Pedigri Fonksiyonu (oransal indeks – 0–2 arası skala): 0.8
+- Yaş (yıl): 50
 
 ➡ Sonuç: Yüksek Diyabet Riski
 
 ---
 
 ### 🟢 Düşük Risk:
-- Glikoz: 90
-- BMI: 22
-- Yaş: 25
+
+- Gebelik Sayısı (adet): 1
+- Glikoz (mg/dL): 90
+- Kan Basıncı (mmHg): 70
+- Cilt Kalınlığı (mm): 20
+- İnsülin (µU/mL): 80
+- Vücut Kitle İndeksi (BMI kg/m²): 22
+- Soy Ağacı / Diyabet Pedigri Fonksiyonu (oransal indeks – 0–2 arası skala): 0.2
+- Yaş (yıl): 25
 
 ➡ Sonuç: Düşük Diyabet Riski
 
