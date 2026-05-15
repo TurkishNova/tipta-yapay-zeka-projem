@@ -141,6 +141,23 @@ Bu sistem:
 
 ---
 
+## 📊 AUC Nedir?
+
+AUC, ROC eğrisi altındaki alandır.
+
+ROC eğrisi:
+Modelin duyarlılık (sensitivity) ve özgüllük (specificity) dengesini gösterir.
+
+###🏥 Tıp açısından yorumu
+
+Örneğin:
+AUC = 0.82 bizdeki gibi
+
+👉 Model şu anlama gelir:
+%82 ihtimalle bir diyabet hastasını doğru şekilde “riskli” olarak ayırabiliyor.
+
+---
+
 ## 🧰 Kullanılan Teknolojiler
 
 * Python 🐍
