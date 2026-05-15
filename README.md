@@ -6,6 +6,7 @@
 
 # Bu proje Tıpta Yapay Zeka dersimin Proje Ödevi için oluşturuldu
 
+* Projeyi 3.14 python ile hazırladım tkinker arayüzü vardır. sistem sizin girdiğiniz verileri hastaların verileriyle karşılaştırarak bir risk oranı oluşturur. gerekli kütüphaneler aşağıda metinde yazılıdır.
 ---
 
 
