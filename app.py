@@ -11,7 +11,9 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import roc_auc_score
 
 
-
+# =========================
+# DATASET
+# =========================
 url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv"
 
 cols = [
@@ -28,7 +30,9 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42, stratify=y
 )
 
-
+# =========================
+# MODEL
+# =========================
 model = Pipeline([
     ("imputer", SimpleImputer(strategy="median")),
     ("scaler", StandardScaler()),
@@ -44,16 +48,18 @@ model.fit(X_train, y_train)
 auc = roc_auc_score(y_test, model.predict_proba(X_test)[:, 1])
 
 
-
+# =========================
+# GUI
+# =========================
 root = tk.Tk()
-root.title("AI Diyabet Tahmin Sistemi")
+root.title("Diyabet Tahmin Sistemi")
 root.geometry("600x650")
 root.configure(bg="#0f172a")
 
 
 tk.Label(
     root,
-    text=f"AI Diyabet Modeli (AUC: {auc:.2f})",
+    text=f"Diyabet Tahmin Modeli (AUC: {auc:.2f})",
     fg="white",
     bg="#0f172a",
     font=("Arial", 14, "bold")
@@ -65,14 +71,14 @@ frame.pack(pady=10)
 
 
 labels = [
-    "Pregnancies",
-    "Glucose",
-    "BloodPressure",
-    "SkinThickness",
-    "Insulin",
-    "BMI",
-    "Pedigree",
-    "Age"
+"Gebelik Sayısı (adet)",
+"Glikoz (mg/dL)",
+"Kan Basıncı (mmHg)",
+"Cilt Kalınlığı (mm)",
+"İnsülin (µU/mL)",
+"Vücut Kitle İndeksi (BMI kg/m²)",
+"Soy Ağacı / Diyabet Pedigri Fonksiyonu (oransal indeks – 0–2 arası skala)",
+"Yaş (yıl)"
 ]
 
 entries = []
@@ -88,7 +94,9 @@ for i, text in enumerate(labels):
 e1, e2, e3, e4, e5, e6, e7, e8 = entries
 
 
-# TAHMİNİ BURADA YÜRÜTÜYORUZ HOCAM
+# =========================
+# PREDICT
+# =========================
 def predict():
     try:
         data = np.array([[
@@ -123,7 +131,9 @@ def predict():
         messagebox.showerror("Hata", "Tüm alanlara sayı gir")
 
 
-
+# =========================
+# CLEAR
+# =========================
 def clear():
     for e in entries:
         e.delete(0, tk.END)
