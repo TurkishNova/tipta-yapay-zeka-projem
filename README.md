@@ -1,11 +1,10 @@
-# Bu proje Tıpta Yapay Zeka dersimin Proje Ödevi için oluşturuldu
 
 
-Aşağıya doğrudan **GitHub README.md** olarak kullanabileceğin, hocaya sunuma uygun profesyonel metni hazırladım. Kopyalayıp yapıştırabilirsin.
+
 
 ---
 
-# 🧠 AI Tıpta Diyabet Risk Tahmini Sistemi (Tkinter + Machine Learning)
+# Bu proje Tıpta Yapay Zeka dersimin Proje Ödevi için oluşturuldu
 
 ## 📌 Proje Amacı
 
