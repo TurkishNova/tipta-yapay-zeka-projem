@@ -6,6 +6,9 @@
 
 # Bu proje Tıpta Yapay Zeka dersimin Proje Ödevi için oluşturuldu
 
+---
+
+
 ## 📌 Proje Amacı
 
 Bu proje, klinik veriler kullanılarak **Tip 2 Diyabet riskinin yapay zeka ile tahmin edilmesini** amaçlamaktadır. Kullanıcıdan alınan sağlık parametreleri, gerçek bir tıbbi veri seti ile eğitilmiş makine öğrenmesi modeli üzerinden analiz edilerek risk sonucu üretilir.
@@ -155,9 +158,4 @@ python app.py
 Bu proje, yapay zekanın sağlık alanında karar destek sistemlerinde nasıl kullanılabileceğini göstermektedir. Klinik veriler üzerinden risk analizi yaparak erken teşhise katkı sağlamayı hedefler.
 
 ---
-
-## 👨‍⚕️ Geliştirici Notu
-
-Bu çalışma, tıbbi yapay zeka final projesi kapsamında geliştirilmiştir ve veri bilimi + klinik yorumlama + kullanıcı arayüzü bileşenlerini bir araya getirmektedir.
-
 ---
