@@ -11,9 +11,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import roc_auc_score
 
 
-# =========================
-# DATASET
-# =========================
+
 url = "https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv"
 
 cols = [
@@ -30,9 +28,7 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42, stratify=y
 )
 
-# =========================
-# MODEL
-# =========================
+
 model = Pipeline([
     ("imputer", SimpleImputer(strategy="median")),
     ("scaler", StandardScaler()),
@@ -48,9 +44,7 @@ model.fit(X_train, y_train)
 auc = roc_auc_score(y_test, model.predict_proba(X_test)[:, 1])
 
 
-# =========================
-# GUI
-# =========================
+
 root = tk.Tk()
 root.title("Diyabet Tahmin Sistemi")
 root.geometry("600x650")
@@ -94,9 +88,8 @@ for i, text in enumerate(labels):
 e1, e2, e3, e4, e5, e6, e7, e8 = entries
 
 
-# =========================
-# PREDICT
-# =========================
+
+# Tahmin modelimiz burada
 def predict():
     try:
         data = np.array([[
@@ -131,9 +124,7 @@ def predict():
         messagebox.showerror("Hata", "Tüm alanlara sayı gir")
 
 
-# =========================
-# CLEAR
-# =========================
+
 def clear():
     for e in entries:
         e.delete(0, tk.END)
